@@ -1,25 +1,31 @@
 import React from "react";
-import { useRouter } from "next/router";
+import { Layout } from "antd";
+
+const { Header, Sider, Content, Footer } = Layout;
 
 type MainLayoutProps = {
   children: React.ReactNode;
 };
 
 export default function MainLayout({ children }: MainLayoutProps) {
-  const router = useRouter();
-  const isHome = router.pathname === "/home";
-  const isList = router.pathname === "/list";
-
   return (
-    <div>
-      <header>
-        <h1 className="ml-10">主页面头部</h1>
-        <nav>{/* 可以添加导航链接 */}</nav>
-      </header>
-      <main>
-        {(isHome || isList) && children}
-        {!isHome && !isList && <div>欢迎来到主页</div>}
-      </main>
-    </div>
+    <Layout style={{ minHeight: "100vh" }}>
+      <Header style={{ background: "#ffa940", padding: "0 16px" }}>
+        Header
+      </Header>
+      <Layout>
+        <Sider width={200} style={{ background: "#ffc069" }}>
+          Nav
+        </Sider>
+        <Layout>
+          <Content style={{ background: "#b7eb8f", padding: "16px" }}>
+            {children} {/* 这里渲染传入的子组件 */}
+          </Content>
+          <Footer style={{ background: "#91d5ff", textAlign: "center" }}>
+            Footer
+          </Footer>
+        </Layout>
+      </Layout>
+    </Layout>
   );
 }

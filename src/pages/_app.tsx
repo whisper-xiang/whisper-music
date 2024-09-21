@@ -1,16 +1,13 @@
 import type { AppProps } from "next/app";
-import { ChakraProvider } from "@chakra-ui/react";
-import MainLayout from "./index";
-import "../styles/globals.css"; // 添加这一行
+import "normalize.css";
+import "../styles/globals.css";
+import { ConfigProvider } from "antd";
+import theme from "../theme/themeConfig"; // 更新这里的导入路径
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <ChakraProvider>
-      <MainLayout>
-        <Component {...pageProps} />
-      </MainLayout>
-    </ChakraProvider>
-  );
+  <ConfigProvider theme={theme}>
+    <Component {...pageProps} />
+  </ConfigProvider>;
 }
 
 export default MyApp;

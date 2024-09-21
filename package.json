@@ -9,11 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@chakra-ui/react": "^2.8.2",
-    "@emotion/react": "^11.13.3",
-    "@emotion/styled": "^11.13.0",
-    "framer-motion": "^11.5.5",
+    "@ant-design/cssinjs": "^1.21.1",
+    "antd": "^5.20.6",
     "next": "14.2.11",
+    "normalize.css": "^8.0.1",
     "react": "^18",
     "react-dom": "^18"
   },
